@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    versionCatalogs {
+        deps {
+            from(files("$rootDir/gradle/dependencies.toml"))
+        }
+    }
+}
+
+rootProject.name = "Game of Thrones Api"
+include ':app'
