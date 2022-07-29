@@ -1,6 +1,7 @@
 plugins {
     alias deps.plugins.androidApplication
     alias deps.plugins.kotlin
+    alias deps.plugins.kapt
     alias deps.plugins.navigation
 }
 
@@ -41,6 +42,10 @@ android {
         jvmTarget = '1.8'
     }
 
+    kapt {
+        generateStubs = true
+    }
+
     buildFeatures {
         viewBinding true
     }
@@ -61,7 +66,12 @@ dependencies {
     // Kotlin
     implementation deps.core
     // Timber
-    implementation deps.timber // <SAO:TIMBER>
+    implementation deps.timber
+    // DI
+    implementation deps.dagger2
+    implementation deps.daggerAndroidSupport
+    kapt deps.daggerCompiler
+    kapt deps.daggerAndroidProcessor
     // Misc
     implementation deps.splashscreen
     // Test

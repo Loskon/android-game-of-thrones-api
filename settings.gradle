@@ -23,5 +23,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Game of Thrones Api"
+rootProject.name = "GameOfThronesApi"
 include ':app'
