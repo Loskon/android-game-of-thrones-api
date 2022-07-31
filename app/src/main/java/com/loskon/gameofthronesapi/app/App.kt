@@ -1,6 +1,10 @@
-package com.loskon.gameofthronesapi
+package com.loskon.gameofthronesapi.app
 
 import android.app.Application
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.loskon.gameofthronesapi.BuildConfig
+import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -9,6 +13,8 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import timber.log.Timber
+import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 class App : DaggerApplication() {
@@ -42,7 +48,7 @@ class AppModule(private val application: Application) {
 }*/
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, AppModule::class])
+@Component(modules = [AndroidInjectionModule::class, AppModule::class, ViewModelModule::class])
 interface AppComponent : AndroidInjector<App> {
 
     @Component.Builder
@@ -60,6 +66,20 @@ class AppModule {
     @Provides
     @Singleton
     fun provideApplication(app: App): Application = app
+}
+
+@Module
+abstract class ViewModelModule {
+
+    @Binds
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+}
+
+@Singleton
+class ViewModelFactory @Inject constructor(
+    private val viewModels: MutableMap<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
+) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T = viewModels[modelClass]?.get() as T
 }
 
 /*

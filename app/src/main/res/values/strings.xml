@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Game of Thrones</string>
+
+    <!-- item_character -->
+    <string name="item_character_family">Family: %1$s</string>
+    <string name="item_character_title">Title: %1$s</string>
 </resources>

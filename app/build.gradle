@@ -17,6 +17,8 @@ android {
         versionCode deps.versions.debugVersionCode.get() as Integer
         versionName deps.versions.debugVersionName.get()
 
+        buildConfigField 'String', 'API_BASE_URL', '"https://thronesapi.com/"'
+        resValue "string", "api_base_url", "https://thronesapi.com/"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
