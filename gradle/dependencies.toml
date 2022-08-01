@@ -25,11 +25,11 @@ material = "1.6.1"
 constraintlayout = "2.1.4"
 recyclerview = "1.2.1"
 swiperefreshlayout = "1.1.0"
-activity = "1.5.0"
-fragment = "1.5.0"
+activity = "1.5.1"
+fragment = "1.5.1"
 preference = "1.2.0"
-lifecycle = "2.5.0"
-navigation = "2.5.0"
+lifecycle = "2.5.1"
+navigation = "2.5.1"
 parcelize = "1.4.30"
 ## Network
 retrofit = "2.9.0"
@@ -40,9 +40,9 @@ picasso = "2.71828"
 glide = "4.13.2"
 coil = "2.1.0"
 ## DI
-dagger2 = "2.43"
-hilt = "2.43"
 koin = "3.2.0"
+hilt = "2.43.1"
+dagger2 = "2.43"
 ## Logs
 timber = "5.0.1"
 ## Test
@@ -60,7 +60,7 @@ firebaseAnalytics = "21.0.0"
 firebaseCrashlytics = "18.2.11"
 firebaseMessaging = "23.0.5"
 ## Misc
-splashscreen = "1.0.0-rc01"
+splashscreen = "1.0.0"
 
 ## libraries ##
 [libraries]
@@ -98,6 +98,8 @@ glideCompiler = { module = "com.github.bumptech.glide:compiler", version.ref = "
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 ## DI
 koin = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hiltCompiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 dagger2 = { module = "com.google.dagger:dagger", version.ref = "dagger2" }
 daggerAndroidSupport = { module = "com.google.dagger:dagger-android-support", version.ref = "dagger2" }
 daggerCompiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger2" }

@@ -3,6 +3,7 @@ plugins {
     alias deps.plugins.kotlin
     alias deps.plugins.kapt
     alias deps.plugins.navigation
+    alias deps.plugins.hilt
     alias deps.plugins.ktlint
     alias deps.plugins.detekt
 }
@@ -72,10 +73,8 @@ dependencies {
     // Timber
     implementation deps.timber
     // DI
-    implementation deps.dagger2
-    implementation deps.daggerAndroidSupport
-    kapt deps.daggerCompiler
-    kapt deps.daggerAndroidProcessor
+    implementation deps.hilt
+    kapt deps.hiltCompiler
     // Misc
     implementation deps.splashscreen
     // Test
