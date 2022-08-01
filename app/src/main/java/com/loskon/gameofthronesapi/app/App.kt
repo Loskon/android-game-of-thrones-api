@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.loskon.gameofthronesapi.BuildConfig
-import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -14,7 +13,6 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import timber.log.Timber
 import javax.inject.Inject
-import javax.inject.Provider
 import javax.inject.Singleton
 
 class App : DaggerApplication() {
@@ -48,7 +46,7 @@ class AppModule(private val application: Application) {
 }*/
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, AppModule::class, ViewModelModule::class])
+@Component(modules = [AndroidInjectionModule::class, AppModule::class])
 interface AppComponent : AndroidInjector<App> {
 
     @Component.Builder
@@ -58,6 +56,8 @@ interface AppComponent : AndroidInjector<App> {
         fun application(app: App): Builder
         fun build(): AppComponent
     }
+
+    fun inject(characterListFragment: CharacterListFragment)
 }
 
 @Module
@@ -68,23 +68,34 @@ class AppModule {
     fun provideApplication(app: App): Application = app
 }
 
-@Module
+/*@Module
 abstract class ViewModelModule {
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
-}
+    *//* @Binds
+     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory*//*
 
+    @Binds
+    @ClassKey(CharacterListViewModel::class)
+    @IntoMap
+    abstract fun mainViewModel(mainViewModel: CharacterListViewModel): ViewModel
+
+    *//*    @Binds
+        @ClassKey(MainViewModel2::class)
+        @IntoMap
+        abstract fun mainViewModel2(mainViewModel2: MainViewModel2) : ViewModel*//*
+}*/
+
+/*
 @Singleton
 class ViewModelFactory @Inject constructor(
     private val viewModels: MutableMap<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T = viewModels[modelClass]?.get() as T
 }
+*/
 
-/*
-@Singleton
-@Component(modules = [ApplicationModule::class])
-interface AppComponent {
-    //fun inject(activity: MainActivity)
-}*/
+class MainViewModelFactory @Inject constructor(
+    private val map: Map<Class<*>, @JvmSuppressWildcards ViewModel>
+) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T = map[modelClass] as T
+}

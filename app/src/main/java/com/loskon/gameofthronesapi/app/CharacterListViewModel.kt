@@ -3,8 +3,9 @@ package com.loskon.gameofthronesapi.app
 import com.loskon.gameofthronesapi.app.base.presentation.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class CharacterListViewModel : BaseViewModel() {
+class CharacterListViewModel @Inject constructor() : BaseViewModel() {
 
     private val characterListState = MutableStateFlow<List<Character>>(emptyList())
     val getCharacterListState get() = characterListState.asStateFlow()

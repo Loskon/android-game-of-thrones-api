@@ -3,17 +3,20 @@ package com.loskon.gameofthronesapi.app
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.loskon.gameofthronesapi.R
 import com.loskon.gameofthronesapi.app.adapter.CharacterAdapter
 import com.loskon.gameofthronesapi.app.base.extension.flow.observe
 import com.loskon.gameofthronesapi.databinding.FragmeentCharacterListBinding
 import com.loskon.gameofthronesapi.viewbinding.viewBinding
+import javax.inject.Inject
 
 class CharacterListFragment : Fragment(R.layout.fragmeent_character_list) {
 
     private val binding by viewBinding(FragmeentCharacterListBinding::bind)
-    private val viewModel: CharacterListViewModel by viewModels()
+
+    //private val viewModel: CharacterListViewModel by viewModels()
+    @Inject
+    lateinit var viewModel: CharacterListViewModel
 
     private val characterAdapter = CharacterAdapter()
 

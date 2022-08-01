@@ -3,6 +3,8 @@ plugins {
     alias deps.plugins.kotlin
     alias deps.plugins.kapt
     alias deps.plugins.navigation
+    alias deps.plugins.ktlint
+    alias deps.plugins.detekt
 }
 
 android {
