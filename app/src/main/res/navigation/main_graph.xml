@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="com.loskon.gameofthronesapi.app.CharacterListFragment"
+        android:name="com.loskon.gameofthronesapi.app.presentation.screens.CharacterListFragment"
         android:label="CharacterListFragment"
         tools:layout="@layout/fragmeent_character_list" />
 

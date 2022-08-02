@@ -18,5 +18,6 @@
     <dimen name="text_large">20sp</dimen>
     <dimen name="text_higher">24sp</dimen>
     <!-- Special -->
-    <dimen name="dialog_corner_radius">4dp</dimen>
+    <dimen name="bottom_bar_height">48dp</dimen>
+    <dimen name="dialog_corner_radius">28dp</dimen>
 </resources>

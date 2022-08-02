@@ -133,8 +133,8 @@ android = ["appcompat", "material", "constraintlayout"]
 lifecycle = ["lifecycleRuntime", "lifecycleViewmodel"]
 navigation = ["navigationFragment", "navigationUi"]
 ## Network
-retrofit-moshi = ["retrofit", "retrofitConverterMoshi", "okHttp", "okHttpLogging"]
-retrofit-gson = ["retrofit", "retrofitConverterGson", "okHttp", "okHttpLogging"]
+retrofitMoshi = ["retrofit", "retrofitConverterMoshi", "okHttp", "okHttpLogging"]
+retrofitGson = ["retrofit", "retrofitConverterGson", "okHttp", "okHttpLogging"]
 ## DI
 koinTest = ["koinTest", "koinJUnit4"]
 

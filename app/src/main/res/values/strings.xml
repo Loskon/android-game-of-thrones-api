@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Game of Thrones</string>
-
-    <!-- item_character -->
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="to_close">To close</string>
     <string name="item_character_family">Family: %1$s</string>
     <string name="item_character_title">Title: %1$s</string>
 </resources>

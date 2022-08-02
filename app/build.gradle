@@ -64,6 +64,7 @@ dependencies {
     implementation deps.material
     implementation deps.constraintlayout
     implementation deps.recyclerview
+    implementation deps.swiperefreshlayout
     implementation deps.activity
     implementation deps.fragment
     implementation deps.bundles.lifecycle
@@ -75,6 +76,11 @@ dependencies {
     // DI
     implementation deps.hilt
     kapt deps.hiltCompiler
+    // Network
+    implementation deps.bundles.retrofitGson
+    // ImageLoader
+    implementation deps.glide
+    kapt deps.glideCompiler
     // Misc
     implementation deps.splashscreen
     // Test

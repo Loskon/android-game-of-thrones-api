@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_card_view"
+    style="?attr/materialCardViewElevatedStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -33,30 +34,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Title"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                tools:text="Name" />
 
             <TextView
-                android:id="@+id/tv_faculty_card"
+                android:id="@+id/tv_family_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:text="House"
                 android:textColor="?android:attr/textColorSecondary"
-                tools:ignore="HardcodedText" />
+                tools:text="Family" />
 
             <TextView
-                android:id="@+id/tv_actor_card"
+                android:id="@+id/tv_title_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:text="Actor"
                 android:textColor="?android:attr/textColorSecondary"
-                tools:ignore="HardcodedText" />
+                tools:text="Title" />
 
         </LinearLayout>
 
