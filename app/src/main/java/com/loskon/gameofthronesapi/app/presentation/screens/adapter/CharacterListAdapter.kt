@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.loskon.gameofthronesapi.R
+import com.loskon.gameofthronesapi.app.base.extension.view.setDebounceClickListener
 import com.loskon.gameofthronesapi.databinding.ItemCharacterBinding
 import com.loskon.gameofthronesapi.domain.model.Character
 import com.loskon.gameofthronesapi.utils.ImageLoader
@@ -24,9 +25,9 @@ class CharacterListAdapter : RecyclerView.Adapter<CharacterListAdapter.Character
         holder.binding.apply {
             ImageLoader.load(ivAvatarCard, character.imageUrl)
             tvNameCard.text = character.fullName
-            tvFamilyCard.text = itemCardView.context.getString(R.string.item_character_family, character.family)
-            tvTitleCard.text = itemCardView.context.getString(R.string.item_character_title, character.title)
-            itemCardView.setOnClickListener { onItemClick?.invoke(character) }
+            tvFamilyCard.text = root.context.getString(R.string.item_character_family, character.family)
+            tvTitleCard.text = root.context.getString(R.string.item_character_title, character.title)
+            root.setDebounceClickListener { onItemClick?.invoke(character) }
         }
     }
 
