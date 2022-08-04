@@ -7,8 +7,30 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="com.loskon.gameofthronesapi.app.presentation.screens.CharacterListFragment"
+        android:name="com.loskon.gameofthronesapi.app.presentation.screens.characterlist.CharacterListFragment"
         android:label="CharacterListFragment"
-        tools:layout="@layout/fragmeent_character_list" />
+        tools:layout="@layout/fragmeent_character_list">
+        <action
+            android:id="@+id/actionOpenInfoSheetDialogFragment"
+            app:destination="@id/infoSheetDialogFragment" />
+        <action
+            android:id="@+id/actionOpenCharacterSheetDialogFragment"
+            app:destination="@id/characterSheetDialogFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/infoSheetDialogFragment"
+        android:name="com.loskon.gameofthronesapi.app.presentation.screens.info.InfoSheetDialogFragment"
+        android:label="InfoSheetDialogFragment" />
+
+    <dialog
+        android:id="@+id/characterSheetDialogFragment"
+        android:name="com.loskon.gameofthronesapi.app.presentation.screens.character.CharacterSheetDialogFragment"
+        android:label="CharacterSheetDialogFragment">
+
+        <argument
+            android:name="character"
+            app:argType="com.loskon.gameofthronesapi.domain.model.Character" />
+    </dialog>
 
 </navigation>

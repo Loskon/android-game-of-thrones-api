@@ -1,4 +1,4 @@
-package com.loskon.gameofthronesapi.app.presentation.screens.state
+package com.loskon.gameofthronesapi.app.presentation.screens.characterlist.state
 
 import com.loskon.gameofthronesapi.domain.model.Character
 

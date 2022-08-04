@@ -1,17 +1,20 @@
-package com.loskon.gameofthronesapi.app.presentation.screens
+package com.loskon.gameofthronesapi.app.presentation.screens.characterlist
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.loskon.gameofthronesapi.R
+import com.loskon.gameofthronesapi.app.base.extension.context.showToast
 import com.loskon.gameofthronesapi.app.base.extension.flow.observe
 import com.loskon.gameofthronesapi.app.base.extension.view.setGoneVisibleKtx
-import com.loskon.gameofthronesapi.app.presentation.screens.adapter.CharacterListAdapter
-import com.loskon.gameofthronesapi.app.presentation.screens.state.CharacterListUiState
+import com.loskon.gameofthronesapi.app.presentation.screens.characterlist.adapter.CharacterListAdapter
+import com.loskon.gameofthronesapi.app.presentation.screens.characterlist.state.CharacterListUiState
 import com.loskon.gameofthronesapi.databinding.FragmeentCharacterListBinding
+import com.loskon.gameofthronesapi.domain.exception.EmptyCacheException
 import com.loskon.gameofthronesapi.domain.model.Character
 import com.loskon.gameofthronesapi.viewbinding.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,10 +55,12 @@ class CharacterListFragment : Fragment(R.layout.fragmeent_character_list) {
             binding.refreshLayout.isRefreshing = false
         }
         binding.bottomBar.setNavigationOnClickListener {
-
+            val action = CharacterListFragmentDirections.actionOpenInfoSheetDialogFragment()
+            findNavController().navigate(action)
         }
-        charactersAdapter.setOnItemClickListener {
-
+        charactersAdapter.setOnItemClickListener { character ->
+            val action = CharacterListFragmentDirections.actionOpenCharacterSheetDialogFragment(character)
+            findNavController().navigate(action)
         }
     }
 
@@ -66,8 +71,6 @@ class CharacterListFragment : Fragment(R.layout.fragmeent_character_list) {
                 is CharacterListUiState.Error -> showErrorMessage(uiState.throwable)
                 is CharacterListUiState.Loading -> binding.indicator.setGoneVisibleKtx(true)
             }
-            //displayViews(characterListState)
-            //if (characterListState.characters.isNotEmpty()) charactersAdapter.setCharacterList(characterListState.characters)
         }
     }
 
@@ -78,6 +81,11 @@ class CharacterListFragment : Fragment(R.layout.fragmeent_character_list) {
     }
 
     private fun showErrorMessage(throwable: Throwable) {
-        //TODO("Not yet implemented")
+        binding.indicator.setGoneVisibleKtx(false)
+
+        when (throwable) {
+            is EmptyCacheException -> binding.tvNoInternet.setGoneVisibleKtx(true)
+            else -> requireContext().showToast(throwable.message)
+        }
     }
 }

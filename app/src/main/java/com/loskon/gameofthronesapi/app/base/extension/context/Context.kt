@@ -2,6 +2,7 @@ package com.loskon.gameofthronesapi.app.base.extension.context
 
 import android.content.Context
 import android.graphics.Typeface
+import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorRes
 import androidx.annotation.FontRes
@@ -27,4 +28,8 @@ fun Context.getColorControlHighlightKtx(): Int {
 
 fun Context.getColorPrimaryKtx(): Int {
     return getMaterialColorKtx(android.R.attr.colorPrimary)
+}
+
+fun Context.showToast(message: String?, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, message, duration).show()
 }

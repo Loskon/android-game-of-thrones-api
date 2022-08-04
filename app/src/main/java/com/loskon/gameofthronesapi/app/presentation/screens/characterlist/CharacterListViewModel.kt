@@ -1,7 +1,7 @@
-package com.loskon.gameofthronesapi.app.presentation.screens
+package com.loskon.gameofthronesapi.app.presentation.screens.characterlist
 
 import com.loskon.gameofthronesapi.app.base.presentation.viewmodel.BaseViewModel
-import com.loskon.gameofthronesapi.app.presentation.screens.state.CharacterListUiState
+import com.loskon.gameofthronesapi.app.presentation.screens.characterlist.state.CharacterListUiState
 import com.loskon.gameofthronesapi.domain.interactor.CharacterListInteractor
 import com.loskon.gameofthronesapi.domain.model.Character
 import dagger.hilt.android.lifecycle.HiltViewModel

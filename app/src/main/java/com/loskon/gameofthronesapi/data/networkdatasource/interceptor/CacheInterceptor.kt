@@ -1,6 +1,7 @@
 package com.loskon.gameofthronesapi.data.networkdatasource.interceptor
 
 import android.content.Context
+import com.loskon.gameofthronesapi.di.NetworkModule.CACHE_DIR_NAME
 import com.loskon.gameofthronesapi.domain.exception.EmptyCacheException
 import com.loskon.gameofthronesapi.utils.NetworkUtil
 import okhttp3.CacheControl
@@ -28,7 +29,7 @@ class CacheInterceptor(private val context: Context) : Interceptor {
         }
     }
 
-    private fun hasCacheDir(): Boolean = File(context.cacheDir.path).exists()
+    private fun hasCacheDir(): Boolean = File(context.cacheDir.path, CACHE_DIR_NAME).exists()
 
     private fun onlineCacheControl(request: Request): Request {
         val cacheControl = CacheControl.Builder().maxAge(MAX_AGE_CACHE, TimeUnit.SECONDS).build()

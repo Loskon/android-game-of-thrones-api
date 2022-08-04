@@ -1,4 +1,4 @@
-package com.loskon.gameofthronesapi.app.presentation.screens.adapter
+package com.loskon.gameofthronesapi.app.presentation.screens.characterlist.adapter
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup

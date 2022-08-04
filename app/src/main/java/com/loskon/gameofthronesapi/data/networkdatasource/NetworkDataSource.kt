@@ -24,22 +24,4 @@ class NetworkDataSource @Inject constructor(
             }
         }
     }
-
-/*    suspend fun getCharacterAsFlow(id: Int): Flow<CharacterDto> {
-        return flow {
-            val response = apiInterface.getCharacter(id)
-
-            if (response.isSuccessful) {
-                val body = response.body()
-
-                if (body != null) {
-                    emit(body)
-                } else {
-                    throw NullPointerException("No such data: " + response.code()) // TODO Ошибка
-                }
-            } else {
-                throw NoSuccessfulException(response.code())
-            }
-        }
-    }*/
 }

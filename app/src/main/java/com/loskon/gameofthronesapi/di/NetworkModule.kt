@@ -14,6 +14,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -23,6 +24,7 @@ object NetworkModule {
 
     private const val CACHE_SIZE = 2 * 1024 * 1024L
     private const val TIMEOUT = 30L
+    const val CACHE_DIR_NAME = "characters"
 
     @Provides
     @Singleton
@@ -33,7 +35,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideCache(@ApplicationContext context: Context): Cache {
-        return Cache(context.cacheDir, CACHE_SIZE)
+        return Cache(File(context.cacheDir.path, CACHE_DIR_NAME), CACHE_SIZE)
     }
 
     @Provides
