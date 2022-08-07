@@ -41,7 +41,7 @@ glide = "4.13.2"
 coil = "2.1.0"
 ## DI
 koin = "3.2.0"
-hilt = "2.43.1"
+hilt = "2.43.2"
 dagger2 = "2.43"
 ## Logs
 timber = "5.0.1"

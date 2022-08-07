@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cst_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
@@ -20,25 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:showAnimationBehavior="inward"
         app:trackThickness="3dp" />
-
-    <TextView
-        android:id="@+id/tv_warning_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/bottom_bar_height"
-        android:gravity="center"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="34sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/refresh_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/indicator"
-        tools:text="No connection"
-        tools:visibility="visible" />
 
     <com.loskon.gameofthronesapi.app.base.widget.swiprerefreshlayout.CustomSwipeRefreshLayout
         android:id="@+id/refresh_layout"

@@ -12,9 +12,9 @@ class CharacterListRepositoryImpl @Inject constructor(
     private val networkDataSource: NetworkDataSource
 ) : CharacterListRepository {
 
-    override suspend fun getCharactersPairAsFlow(): Flow<Pair<Boolean, List<Character>>>  {
+    override suspend fun getCharactersPairAsFlow(): Flow<Pair<Boolean, List<Character>>> {
         return networkDataSource.getCharactersListAsFlow().map { characters ->
-           characters.first to characters.second.map { it.toCharacter() }
+            characters.first to characters.second.map { it.toCharacter() }
         }
     }
 }
